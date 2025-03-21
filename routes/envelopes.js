@@ -2,11 +2,22 @@ const express = require('express');
 const envelopesRouter = express.Router();
 const { envelopes } = require('../data.js');
 
+// Fetch all envelopes or specific envelope
 envelopesRouter.get('/', (req, res) => {
-    console.log(req.params);
-    res.send('Hello');
+    const id = Number(req.query.id);
+    if (id !== undefined) {
+        const envelope = envelopes.filter(envelope => envelope.id === id);
+        res.status(200).send({
+            envelope: envelope
+        })
+    } else {
+        res.status(200).send({
+            envelopes: envelopes
+        })
+    }
 });
 
+// Create an envelope
 envelopesRouter.post('/:id', (req, res) => {
     const { category, budget } = req.body;
     if (category, budget) {
