@@ -1,5 +1,5 @@
 const envelopes = [];
-const totalBudget = [];
+let totalBudget;
 
 module.exports = {
     envelopes,
