@@ -2,17 +2,20 @@ const envelopes = [
     {
         id: 1,
         category: 'Bills',
-        budget: 1000
+        budget: 1000,
+        limit: 1000
     },
     {
         id: 2,
         category: 'Groceries',
-        budget: 150
+        budget: 150,
+        limit: 150
     },
     {
         id: 3,
         category: 'Gas',
-        budget: 100
+        budget: 100,
+        limit: 100
     }
 ];
 let totalBudget = 2000;

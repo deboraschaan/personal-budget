@@ -18,15 +18,34 @@ envelopesRouter.get('/', (req, res) => {
 });
 
 // Create an envelope
-envelopesRouter.post('/:id', (req, res) => {
-    const { category, budget } = req.body;
-    if (category, budget) {
-        const newEnvelope = { id: envelopes.length + 1, category: category, budget: budget };
+envelopesRouter.post('/', (req, res) => {
+    const { category, budget, limit } = req.body;
+    if (category && budget && limit) {
+        const newEnvelope = { id: envelopes.length + 1, category: category, budget: budget, limit: limit };
         envelopes.push(newEnvelope);
-        console.log(envelopes);
-        res.status(201).send();
+        res.status(201).send({ envelope: newEnvelope });
     } else {
         res.status(400).send('Error generating envelope.');
+    }
+});
+
+// Update budget or envelope info
+envelopesRouter.put('/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const { category, budget, limit } = req.body;
+
+    if (!id || !category || !budget || !limit) {
+        return res.status(400).send({ error: 'Missing required fields' });
+    }
+
+    const index = envelopes.findIndex(envelope => envelope.id === id);
+
+    if (index !== -1) {
+        envelopes[index] = { id, category, budget, limit };
+        return res.status(200).send({ envelope: envelopes[index] });
+
+    } else {
+        return res.status(404).send({ error: 'Envelope not found' });
     }
 });
 
