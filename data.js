@@ -1,4 +1,4 @@
-const envelopes = [
+let envelopes = [
     {
         id: 1,
         category: 'Bills',

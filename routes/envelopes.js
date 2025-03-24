@@ -1,6 +1,6 @@
 const express = require('express');
 const envelopesRouter = express.Router();
-const { envelopes } = require('../data.js');
+let { envelopes } = require('../data.js');
 
 // Fetch all envelopes or specific envelope
 envelopesRouter.get('/', (req, res) => {
@@ -47,6 +47,16 @@ envelopesRouter.put('/:id', (req, res) => {
     } else {
         return res.status(404).send({ error: 'Envelope not found' });
     }
+});
+
+// Delete envelope
+envelopesRouter.delete('/:id', (req, res) => {
+    const id = Number(req.params.id);
+    if (!id) {
+        return res.status(404).send({ error: "Envelope not found." });
+    }
+    envelopes = envelopes.filter(envelope => envelope.id !== id);
+    return res.status(200).send(envelopes);
 });
 
 module.exports = envelopesRouter;
