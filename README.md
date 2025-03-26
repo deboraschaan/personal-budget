@@ -4,12 +4,12 @@ An API that allows clients to create and manage a personal budget, based on [Env
 
 ## Project Objectives
 
-* [ ] Build an API using Node.js and Express
-* [ ] Be able to create, read, update, and delete envelopes
-* [ ] Create endpoint(s) to update envelope balances
-* [ ] Use Git version control to keep track of your work
-* [ ] Use the command line to navigate your files and folders
-* [ ] Use Postman to test API endpoints
+☑️ Build an API using Node.js and Express
+☑️ Be able to create, read, update, and delete envelopes
+⬜️ Create endpoint(s) to update envelope balances
+☑️ Use Git version control to keep track of your work
+☑️ Use the command line to navigate your files and folders
+☑️ Use Postman to test API endpoints
 
 ### Tools Used
 
@@ -25,12 +25,18 @@ An API that allows clients to create and manage a personal budget, based on [Env
 * Allow users to create categories
 * Set limit for each category
 
+## Instructions
+
+To run locally, run 'npm install' then 'npm run start'
+
+Once the app is running locally, you can access the API at '<http://localhost:3000/>'
+
 ## Project Expansion
 
-* [] Create a frontend that displays envelopes and balances, and allows users to update each envelop balance
-* [] Add an API endpoint allowing user to add a single balance that’s distributed to multiple envelopes
-* [] Add any libraries
-* [] Refactor your code
+🔜 Create a frontend that displays envelopes and balances, and allows users to update each envelop balance
+🔜 Add an API endpoint allowing user to add a single balance that’s distributed to multiple envelopes
+🔜 Add any libraries
+🔜 Refactor your code
 
 ## Inspiration
 

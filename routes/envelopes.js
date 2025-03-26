@@ -59,4 +59,41 @@ envelopesRouter.delete('/:id', (req, res) => {
     return res.status(200).send(envelopes);
 });
 
+// Transfer budgets from different envelopes (POST)
+// This request would take in a header value and update the balances 
+// of both envelopes by subtracting it from one and adding it to the other.
+envelopesRouter.post('/transfer/:from/:to', (req, res) => {
+    const { from, to } = req.params;
+    const { amount } = req.body;
+    console.log("fromId:", from, "toId:", to, "amount:", amount);
+
+    // Find correspondent IDs
+    const giver = envelopes.find(envelope => envelope.id === Number(from));
+    const receiver = envelopes.find(envelope => envelope.id === Number(to));
+    console.log("giver:", giver, "receiver:", receiver);
+
+    // Check if they exist
+    if (!giver || !receiver || !amount) {
+        return res.status(404).send({ message: "Envelope not found." });
+    }
+
+    // Check if budget from giver has enough to retrieve from
+    if (giver.budget < amount) {
+        return res.status(400).send({
+            message: "Not enough to retrieve from selected envelope."
+        });
+    }
+
+    // Subtract from giver and add to receiver
+    giver.budget -= Number(amount);
+    receiver.budget += Number(amount);
+
+    return res.status(200).send(giver);
+
+});
+
+// Next Steps
+// Add an API endpoint allowing user to add a single balance that’s distributed to multiple envelopes
+// Feel free to also add any libraries or refactor your code as you see fit! (Router libraries)
+// Create a frontend that displays envelopes and balances, and allows users to update each envelop balance
 module.exports = envelopesRouter;
