@@ -1,143 +1,130 @@
 const express = require('express');
 const envelopesRouter = express.Router();
-const { findById } = require('../helpers.js');
+const { findById, validateEnvelopeIds, calculateTotalDistribution, generateNewId } = require('../helpers.js');
 let { envelopes } = require('../data.js');
 
-// Fetch all envelopes or specific envelope
+// GET all envelopes
 envelopesRouter.get('/', (req, res) => {
-    const id = Number(req.query.id);
-    if (id !== undefined) {
-        const envelope = envelopes.filter(envelope => envelope.id === id);
-        res.status(200).send({
-            envelope: envelope
-        })
-    } else {
-        res.status(200).send({
-            envelopes: envelopes
-        })
-    }
+    res.status(200).send({ envelopes });
 });
 
-// Create an envelope
-envelopesRouter.post('/', (req, res) => {
-    const { category, budget, limit } = req.body;
-    if (category && budget && limit) {
-        const newEnvelope = { id: envelopes.length + 1, category: category, budget: budget, limit: limit };
-        envelopes.push(newEnvelope);
-        res.status(201).send({ envelope: newEnvelope });
-    } else {
-        res.status(400).send('Error generating envelope.');
-    }
-});
-
-// Update budget or envelope info
-envelopesRouter.put('/:id', (req, res) => {
+// GET specific envelope by ID
+envelopesRouter.get('/:id', (req, res, next) => {
     const id = Number(req.params.id);
-    const { category, budget, limit } = req.body;
 
-    if (!id || !category || !budget || !limit) {
-        return res.status(400).send({ error: 'Missing required fields' });
+    // Data validation
+    if (!validateEnvelopeIds(envelopes, [id])) {
+        res.status(404).send({ error: "Envelope not found." })
     }
 
-    const index = envelopes.findIndex(envelope => envelope.id === id);
-
-    if (index !== -1) {
-        envelopes[index] = { id, category, budget, limit };
-        return res.status(200).send({ envelope: envelopes[index] });
-
-    } else {
-        return res.status(404).send({ error: 'Envelope not found' });
-    }
+    // Get logic
+    const envelope = findById(envelopes, id);
+    res.status(200).send({ envelope: envelope });
 });
 
-// Delete envelope
-envelopesRouter.delete('/:id', (req, res) => {
+// POST: Create a new envelope
+envelopesRouter.post('/', (req, res, next) => {
+    // Request info
+    const { category, budget } = req.body;
+
+    // Data validation
+    if (!category || !budget) {
+        res.status(400).send('Missing required fields.');
+    }
+
+    // Post logic
+    const newEnvelope = { id: generateNewId(envelopes), category: category, budget: Number(budget) };
+    envelopes.push(newEnvelope);
+    res.status(201).send({ envelope: newEnvelope });
+});
+
+// PUT: Update an envelope
+envelopesRouter.put('/:id', (req, res, next) => {
+    // Request info
     const id = Number(req.params.id);
+    const { category, budget } = req.body;
+    const envelope = findById(envelopes, id);
+
+    // Data validation
+    if (!envelope) {
+        return res.status(404).send({ error: 'Envelope not found.' });
+    }
+
+    if (!category || !budget) {
+        return res.status(400).send({ error: 'Missing required fields.' });
+    }
+
+    // Put logic
+    envelope.category = category;
+    envelope.budget = Number(budget);
+    res.status(200).send({ envelope: envelope });
+});
+
+// DELETE: Remove an envelope
+envelopesRouter.delete('/:id', (req, res, next) => {
+    const id = Number(req.params.id);
+
+    // Data validation
     if (!id) {
+        return res.status(400).send({ error: "Id required." });
+    }
+
+    const envelope = validateEnvelopeIds(envelopes, [id]);
+    if (!envelope) {
         return res.status(404).send({ error: "Envelope not found." });
     }
+
     envelopes = envelopes.filter(envelope => envelope.id !== id);
-    return res.status(200).send(envelopes);
+    res.status(200).send(envelopes);
 });
 
-// Transfer budgets from different envelopes
-envelopesRouter.post('/transfer/:from/:to', (req, res) => {
+// POST: Transfer budget between envelopes
+envelopesRouter.post('/transfer/:from/:to', (req, res, next) => {
+    // Request info
     const fromId = Number(req.params.from);
     const toId = Number(req.params.to);
     const { amount } = req.body;
 
-    // Find correspondent IDs
-    const giver = envelopes.find(envelope => envelope.id === fromId);
-    const receiver = envelopes.find(envelope => envelope.id === toId);
+    // Data validation
+    const giver = findById(envelopes, fromId);
+    const receiver = findById(envelopes, toId);
 
-    // Check if they exist
     if (!giver || !receiver || !amount) {
         return res.status(404).send({ message: "Invalid transfer details." });
     }
 
-    // Check if budget from giver has enough to retrieve from
     if (giver.budget < amount) {
         return res.status(400).send({
             message: "Not enough budget."
         });
     }
 
-    // Subtract from giver and add to receiver
+    // Transfer logic
     giver.budget -= Number(amount);
     receiver.budget += Number(amount);
-
-    res.status(200).send({ giver, receiver });
+    res.status(200).send({ message: "Transfer successful", envelopes });
 });
 
-// Add a single balance that’s distributed to multiple envelopes
-envelopesRouter.post('/distribute', (req, res) => {
+// POST: Distribute balance across multiple envelopes
+envelopesRouter.post('/distribute', (req, res, next) => {
     // Request info
     const { balance, chosenEnvelopesIds, distribution } = req.body;
 
     // Data validation
-    // Check user input
     if (!balance || (!chosenEnvelopesIds && !distribution)) {
         return res.status(400).send({ message: "Invalid request. Provide balance and either chosenEnvelopesIds or distribution." });
     }
 
-    // Check if an envelope ID provided doesn't exist
-    chosenEnvelopesIds.forEach(envelopeId => {
-        let found = findById(envelopes, envelopeId);
-        if (!found) {
-            return res.status(400).send({ message: "Envelope not found." });
-        }
-    });
+    let foundEnvelopes = chosenEnvelopesIds ? validateEnvelopeIds(envelopes, chosenEnvelopesIds) : null;
 
-    // If user sends an empty array of envelopes 
-    if (chosenEnvelopesIds.length === 0 || !distribution) {
-        return res.status(400).send({ message: "No envelopes selected to distribute balance." });
+    if (chosenEnvelopesIds && !foundEnvelopes) {
+        return res.status(404).json({ error: "One or more envelopes not found." });
     }
 
-    // Rules for distribution
-    // Equal parts
-    if (chosenEnvelopesIds.length > 0) {
-        let foundEnvelopes = [];
-        chosenEnvelopesIds.forEach(envelopeId => {
-            let found = findById(envelopes, envelopeId);
-            // Check if found envelopes
-            if (found) {
-                foundEnvelopes.push(found);
-            }
-        });
-
-        // Check if chosen envelopes and found envelopes amount match
-        if (foundEnvelopes.length !== chosenEnvelopesIds.length) {
-            return res.status(400).send({ message: "One or more envelopes not found." })
-        }
-
-        // Add equal amounts to each envelope
-        let amountPerEnvelope = balance / chosenEnvelopesIds.length;
-        foundEnvelopes.forEach(envelope => envelope.budget += amountPerEnvelope);
-    }
-
-    // Specific amounts per envelope
-    else if (distribution) {
-        let totalAmount = Object.values(distribution).reduce((acc, curr) => acc + curr, 0);
+    // Rules of distribution
+    // Specific amounts
+    if (distribution) {
+        let totalAmount = calculateTotalDistribution(distribution);
 
         // Check if total amount doesn't match the sum of distributed amounts
         if (balance !== totalAmount) {
@@ -150,11 +137,13 @@ envelopesRouter.post('/distribute', (req, res) => {
                 envelope.budget += amount;
             }
         })
-
-        return res.status(200).send({ message: "Balance distributed successfully", envelopes });
-
     }
-
-})
+    // Equal parts
+    else {
+        let amountPerEnvelope = balance / chosenEnvelopesIds.length;
+        foundEnvelopes.forEach(envelope => envelope.budget += amountPerEnvelope);
+    }
+    res.status(200).json({ message: "Balance distributed successfully", envelopes });
+});
 
 module.exports = envelopesRouter;

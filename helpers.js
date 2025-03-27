@@ -13,4 +13,4 @@ const generateNewId = (data) => {
     return data.length ? Math.max(...data.map(item => item.id)) + 1 : 1;
 };
 
-module.exports = { findById };
+module.exports = { findById, validateEnvelopeIds, calculateTotalDistribution, generateNewId };
