@@ -1,33 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p className="underline">Hello</p>
+
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-envelope"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-check"></i>
+      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-circle-xmark"></i>
+      <i class="fa-solid fa-xmark"></i>
+      <i class="fa-solid fa-filter"></i>
+      <i class="fa-solid fa-list"></i>
+      <i class="fa-solid fa-tag"></i>
+      <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-palette"></i>
+      <i class="fa-solid fa-code-compare"></i>
+      <i class="fa-solid fa-caret-up"></i>
+      <i class="fa-solid fa-pen"></i>
+      <i class="fa-solid fa-pen-to-square"></i>
+      <i class="fa-solid fa-square-check"></i>
+      <i class="fa-solid fa-circle-check"></i>
+      <i class="fa-solid fa-trash-can"></i>
+      <i class="fa-solid fa-rotate"></i>
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+      <i class="fa-solid fa-chart-simple"></i>
+      <i class="fa-solid fa-money-bill"></i>
+      <i class="fa-solid fa-dollar-sign"></i>
+      <i class="fa-solid fa-piggy-bank"></i>
+      <i class="fa-solid fa-money-bill-transfer"></i>
+      <i class="fa-solid fa-money-bills"></i>
+      <i class="fa-solid fa-chart-pie"></i>
+      <i class="fa-solid fa-copy"></i>
+      <i class="fa-solid fa-copyright"></i>
+      <i class="fa-solid fa-tags"></i>
+      <i class="fa-solid fa-envelope-open"></i>
+      <i class="fa-solid fa-envelope-circle-check"></i>
+
     </>
   )
 }

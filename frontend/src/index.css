@@ -1,28 +1,37 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Noto Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  --black: rgb(51, 51, 51);
+  --white: rgb(245, 245, 243);
+  --beige: rgb(239, 239, 234);
+  --gray: rgb(175, 181, 177);
+  --brown: rgb(141, 129, 107);
+  --light-blue: rgb(171, 208, 217);
+  --dark-blue: rgb(128, 149, 175);
+  --red: rgb(225, 123, 128);
+  --peach: rgb(234, 178, 170);
+  --orange: rgb(234, 179, 118);
+  --green: rgb(148, 209, 160);
+  --lime: rgb(202, 212, 151);
+  --yellow: rgb(237, 210, 122);
+  --purple: rgb(174, 151, 194);
+  --pink: rgb(210, 158, 177);
+
+  background-color: var(--light-blue);
+
+  /* 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #242424; */
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
@@ -46,23 +55,27 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
-}
+} */
