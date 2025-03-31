@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const errorHandler = require('errorhandler');
 const cors = require('cors');
-const envelopesRouter = require('../routes/envelopes-router.js');
+const envelopesRouter = require('./routes/envelopes-router.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
