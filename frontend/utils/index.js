@@ -1,5 +1,7 @@
-// array holding objects to represent each envelope might be a useful approach. 
-// Each envelope will be represented by a numerical ID and hold information regarding its budget and title.
+function updateEnvelope(id) {
+    fetch(`/envelopes/${id}`)
+}
+
 
 class Envelope {
     constructor(id, category, budget) {
@@ -12,3 +14,5 @@ class Envelope {
     // set expenses
     // get bugdet
 }
+
+export { updateEnvelope };

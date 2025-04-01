@@ -1,8 +1,43 @@
 @import "tailwindcss";
 @import "tailwindcss/preflight";
 
-:root {
-  font-family: "Noto Sans", sans-serif;
+@theme {
+  --font-sans: "Noto Sans", sans-serif;
+
+  --color-black: rgb(51, 51, 51);
+  --color-white: rgb(245, 245, 243);
+  --color-beige: rgb(239, 239, 234);
+  --color-gray: rgb(175, 181, 177);
+  --color-brown: rgb(141, 129, 107);
+  --color-light-blue: rgb(171, 208, 217);
+  --color-dark-blue: rgb(128, 149, 175);
+  --color-red: rgb(225, 123, 128);
+  --color-peach: rgb(234, 178, 170);
+  --color-orange: rgb(234, 179, 118);
+  --color-green: rgb(148, 209, 160);
+  --color-lime: rgb(202, 212, 151);
+  --color-yellow: rgb(237, 210, 122);
+  --color-purple: rgb(174, 151, 194);
+  --color-pink: rgb(210, 158, 177);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-beige);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--color-black);
+  }
+
+  i {
+    fill: var(--color-black);
+  }
+}
+
+
+
+
+/*   font-family: "Noto Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -22,13 +57,13 @@
   --purple: rgb(174, 151, 194);
   --pink: rgb(210, 158, 177);
 
-  background-color: var(--light-blue);
+  background-color: var(--light-blue); */
 
-  /* 
+/* 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424; */
-}
+
 
 
 /* body {
