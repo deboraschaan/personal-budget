@@ -1,7 +1,9 @@
+import './index.css';
 import { BrowserRouter, Routes, Route } from "react-router";
 import Dashboard from './pages/dashboard';
 import Navbar from './components/navbar/NavBar';
-import './index.css';
+import EnvelopeList from "./components/envelope-list/EnvelopeList";
+import Modal from './components/modal/Modal';
 
 function App() {
 
@@ -9,6 +11,8 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
+        <EnvelopeList />
+        <Modal />
         <Routes>
           <Route path='dashboard' element={<Dashboard />} >
           </Route>

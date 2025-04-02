@@ -1,34 +1,29 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --font-sans: "Noto Sans", sans-serif;
-
-  --color-black: rgb(51, 51, 51);
-  --color-white: rgb(245, 245, 243);
-  --color-beige: rgb(239, 239, 234);
-  --color-gray: rgb(175, 181, 177);
-  --color-brown: rgb(141, 129, 107);
-  --color-light-blue: rgb(171, 208, 217);
-  --color-dark-blue: rgb(128, 149, 175);
-  --color-red: rgb(225, 123, 128);
+  --color-cream: rgb(239, 239, 234);
+  --color-dark: rgb(51, 51, 51);
+  --color-snow: rgb(245, 245, 243);
+  --color-dirt: rgb(175, 181, 177);
+  --color-chocolate: rgb(141, 129, 107);
+  --color-celeste: rgb(171, 208, 217);
+  --color-afternoon: rgb(128, 149, 175);
+  --color-blush: rgb(225, 123, 128);
   --color-peach: rgb(234, 178, 170);
-  --color-orange: rgb(234, 179, 118);
-  --color-green: rgb(148, 209, 160);
+  --color-tangerina: rgb(234, 179, 118);
+  --color-aspargus: rgb(148, 209, 160);
   --color-lime: rgb(202, 212, 151);
-  --color-yellow: rgb(237, 210, 122);
-  --color-purple: rgb(174, 151, 194);
-  --color-pink: rgb(210, 158, 177);
+  --color-joy: rgb(237, 210, 122);
+  --color-ennui: rgb(174, 151, 194);
+  --color-barbie: rgb(210, 158, 177);
 }
 
 @layer base {
   body {
-    background-color: var(--color-beige);
+    background-color: var(--color-cream);
     font-family: var(--font-sans);
     font-weight: 400;
-    color: var(--color-black);
-  }
-
-  i {
-    fill: var(--color-black);
+    color: var(--color-dark);
   }
 }
