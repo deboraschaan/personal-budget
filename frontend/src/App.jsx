@@ -1,12 +1,12 @@
 import './index.css';
-import NavBar from './components/NavBar';
-import Button from './components/Button';
+import Navbar from './components/navbar/NavBar';
+import Button from './components/navbar/NavbarButton';
 
 function App() {
 
   return (
     <>
-      <NavBar />
+      <Navbar />
       <Button />
       <p className="underline bg-beige text-light-blue">Hello</p>
 
