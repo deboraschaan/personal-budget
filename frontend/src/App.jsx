@@ -1,15 +1,19 @@
-import './index.css';
+import { BrowserRouter, Routes, Route } from "react-router";
+import Dashboard from './pages/dashboard';
 import Navbar from './components/navbar/NavBar';
-import Button from './components/navbar/NavbarButton';
+import './index.css';
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      <Button />
-      <p className="underline bg-beige text-light-blue">Hello</p>
-
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='dashboard' element={<Dashboard />} >
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
