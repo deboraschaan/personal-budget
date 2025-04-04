@@ -9,9 +9,9 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     return (
-        <nav className="border-b-1">
-            <div className="flex flex-row justify-evenly my-10">
-                <NavbarButton onClick={() => navigate('/')} variant={'home'} icon="fa-solid fa-home" />
+        <nav className="sticky top-0 z-50 bg-white items-center px-4 py-5 shadow-md shadow-zinc-900/5 transition duration-500 sm:px-6 lg:px-8">
+            <div className="flex flex-row justify-evenly">
+                <NavbarButton checked onClick={() => navigate('/')} variant={'home'} icon="fa-solid fa-home" />
                 <NavbarButton onClick={handleSearch} variant={'search'} icon="fa-solid fa-circle-plus" />
                 <NavbarButton onClick={handleOptions} variant={'options'} icon="fa-solid fa-bars" />
             </div>
