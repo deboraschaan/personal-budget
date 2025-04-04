@@ -4,6 +4,7 @@ import Dashboard from './pages/dashboard';
 import Navbar from './components/navbar/NavBar';
 import EnvelopeList from "./components/envelope-list/EnvelopeList";
 import Modal from './components/modal/Modal';
+import SearchBar from './components/searchbar/SearchBar';
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
+        <SearchBar />
         <EnvelopeList />
         <Modal />
         <Routes>
