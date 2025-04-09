@@ -7,14 +7,14 @@ export default function NavbarOptions() {
     return (
         <div
             id="options"
-            className={`fixed z-50 right-3 top-20
+            className={`fixed z-50 right-8 top-20
             ${location.pathname === "/options" ? "visible" : "invisible"}
             rounded-lg mx-auto
             bg-white
             border-zinc-200 border p-4
             `}
         >
-            <ul className=" divide-y divide-zinc-100 p-6">
+            <ul className="divide-y divide-zinc-100 -mt-2 p-6">
                 <li className="group hover:text-aspargus py-4 flex gap-3 items-center">
                     <i className="group-hover:text-aspargus text-2xl text-zinc-400 fa-solid fa-magnifying-glass"></i>
                     <Link to="/search">Search</Link>

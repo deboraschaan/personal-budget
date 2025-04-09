@@ -9,8 +9,8 @@ export default function App() {
   return (
     <div className='min-h-screen bg-theme-background text-theme-text relative'>
       <Navbar />
-      <EnvelopeList />
       <Outlet />
+      <EnvelopeList />
     </div>
   )
 };

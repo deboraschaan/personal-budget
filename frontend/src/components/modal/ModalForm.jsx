@@ -9,7 +9,7 @@ export default function ModalForm(props) {
 
     return (
         <>
-            <form id={props.formId} className="flex flex-col space-y-10" action={props.action}>
+            <form id={props.formId} method="dialog" className="flex flex-col space-y-10" action={props.action}>
 
                 <h2 className="flex mb-6 text-zinc-900 justify-center items-center font-semibold ">
                     <span className="ml-3">

@@ -16,9 +16,10 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-0 bg-white items-center 
-        flex flex-row justify-end mx-6
+        flex flex-row justify-between
         px-10 py-5 shadow-md shadow-zinc-900/5 transition duration-500
         sm:px-6 lg:px-8">
+            <h2 className="text-aspargus">Personal Budget</h2>
             <button
                 onClick={handleClick}
                 data-open={isOpen}
