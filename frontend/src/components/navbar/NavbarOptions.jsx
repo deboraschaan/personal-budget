@@ -24,12 +24,20 @@ export default function NavbarOptions() {
                     <Link to="/create">Create new envelope</Link>
                 </li>
                 <li className="group hover:text-aspargus py-4 flex gap-3 items-center">
-                    <i className="group-hover:text-aspargus text-2xl text-zinc-400 fa-solid fa-square-pen"></i>
+                    <i className="group-hover:text-aspargus text-2xl text-zinc-400 fa-solid fa-pen-to-square"></i>
                     <Link to="/edit">Edit envelope</Link>
                 </li>
                 <li className="group hover:text-aspargus py-4 flex gap-3 items-center">
                     <i className="group-hover:text-aspargus text-2xl text-zinc-400 fa-solid fa-trash-can"></i>
                     <Link to="/delete">Delete envelope</Link>
+                </li>
+                <li className="group hover:text-aspargus py-4 flex gap-3 items-center">
+                    <i className="group-hover:text-aspargus text-2xl text-zinc-400 fa-solid fa-money-bill-transfer"></i>
+                    <Link to="/transfer">Transfer from envelopes</Link>
+                </li>
+                <li className="group hover:text-aspargus py-4 flex gap-3 items-center">
+                    <i className="group-hover:text-aspargus text-2xl text-zinc-400 fa-solid fa-circle-dollar-to-slot"></i>
+                    <Link to="/add-balance">Add Balance</Link>
                 </li>
             </ul>
         </div>

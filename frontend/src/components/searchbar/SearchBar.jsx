@@ -3,16 +3,17 @@ import React from "react";
 export default function SearchBar() {
     return (
         <div
-            className="m-6 w-dvw"
+            className="m-6 relative "
         >
             <form
                 action
                 novalidate
                 role="search"
-                className="py-3 rounded-md border bg-white
-                fixed top-20 
+                className="py-3 px-10 rounded-md border
+                absolute top-0 right-7 left-7
                 border-zinc-900/10 shadow-md shadow-zinc-800/5
-                focus-within:border-aspargus"
+                focus-within:border-aspargus
+                "
             >
                 <div
                     className="relative flex"

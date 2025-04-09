@@ -1,33 +1,44 @@
-      <i class="fa-solid fa-user"></i>
-      <i class="fa-solid fa-envelope"></i>
-      <i class="fa-solid fa-magnifying-glass"></i>
+      FORM
       <i class="fa-solid fa-check"></i>
-      <i class="fa-solid fa-bars"></i>
       <i class="fa-solid fa-circle-xmark"></i>
       <i class="fa-solid fa-xmark"></i>
-      <i class="fa-solid fa-filter"></i>
       <i class="fa-solid fa-list"></i>
-      <i class="fa-solid fa-tag"></i>
-      <i class="fa-solid fa-plus"></i>
-      <i class="fa-solid fa-palette"></i>
-      <i class="fa-solid fa-code-compare"></i>
-      <i class="fa-solid fa-caret-up"></i>
-      <i class="fa-solid fa-pen"></i>
-      <i class="fa-solid fa-pen-to-square"></i>
       <i class="fa-solid fa-square-check"></i>
       <i class="fa-solid fa-circle-check"></i>
+
+      CRUD
+      <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-pen"></i>
+      <i class="fa-solid fa-pen-to-square"></i>
+      <i class="fa-solid fa-filter"></i>
       <i class="fa-solid fa-trash-can"></i>
-      <i class="fa-solid fa-rotate"></i>
-      <i class="fa-solid fa-ellipsis-vertical"></i>
-      <i class="fa-solid fa-chart-simple"></i>
+
+      USABILITY
+      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-caret-up"></i>
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      ENVELOPES
+      <i class="fa-solid fa-envelope"></i>
+      <i class="fa-solid fa-envelope-open"></i>
+      <i class="fa-solid fa-envelope-circle-check"></i>
+
+      MONEY
+      <i class="fa-solid fa-money-bills"></i>
+      <i class="fa-solid fa-money-bill-transfer"></i>
       <i class="fa-solid fa-money-bill"></i>
       <i class="fa-solid fa-dollar-sign"></i>
       <i class="fa-solid fa-piggy-bank"></i>
-      <i class="fa-solid fa-money-bill-transfer"></i>
-      <i class="fa-solid fa-money-bills"></i>
+
+      ALTERNATIVES
+      <i class="fa-solid fa-tag"></i>
+      <i class="fa-solid fa-palette"></i>
+      <i class="fa-solid fa-code-compare"></i>
+      <i class="fa-solid fa-rotate"></i>
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+      <i class="fa-solid fa-chart-simple"></i>
       <i class="fa-solid fa-chart-pie"></i>
       <i class="fa-solid fa-copy"></i>
       <i class="fa-solid fa-copyright"></i>
       <i class="fa-solid fa-tags"></i>
-      <i class="fa-solid fa-envelope-open"></i>
-      <i class="fa-solid fa-envelope-circle-check"></i>

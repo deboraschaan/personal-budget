@@ -6,6 +6,7 @@ export default function DeleteForm(props) {
         <>
             <div className="flex flex-col gap-2">
                 <label
+                    className="text-sm"
                     form="form-delete"
                     htmlFor="delete-select">
                     Select an envelope:

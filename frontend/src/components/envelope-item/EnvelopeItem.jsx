@@ -2,7 +2,10 @@ import React from "react";
 
 export default function EnvelopeItem(props) {
     return (
-        <section className="group relative border-zinc-200 border rounded-xl p-4 flex gap-3 mb-4 hover:border-aspargus">
+        <section
+            className="group relative border-zinc-200 border 
+            rounded-xl p-4 flex gap-3 mb-4 hover:border-aspargus
+            sm:mb-0">
             <div className="absolute inset-0 rounded-xl border-2 border-transparent opacity-0 bg-aspargus/10 group-hover:opacity-100">
             </div>
             <div className="relative overflow-hidden rounded-xl p-6 flex gap-3">

@@ -12,19 +12,19 @@ export default function ModalForm(props) {
             <form id={props.formId} method="dialog" className="flex flex-col space-y-10" action={props.action}>
 
                 <h2 className="flex mb-6 text-zinc-900 justify-center items-center font-semibold ">
-                    <span className="ml-3">
+                    <span>
                         {props.formId === "form-create" && "Create New Envelope"}
                         {props.formId === "form-edit" && "Edit envelope"}
                         {props.formId === "form-delete" && "Delete envelope"}
                         {props.formId === "form-transfer" && "Transfer"}
-                        {props.formId === "form-balance" && "Add Balance"}
+                        {props.formId === "form-add-balance" && "Add Balance"}
                     </span>
                 </h2>
                 {props.formId === "form-create" && <CreateForm />}
                 {props.formId === "form-edit" && <EditForm />}
                 {props.formId === "form-delete" && <DeleteForm />}
                 {props.formId === "form-transfer" && <TransferForm />}
-                {props.formId === "form-balance" && <AddBalanceForm />}
+                {props.formId === "form-add-balance" && <AddBalanceForm />}
 
             </form>
         </>
