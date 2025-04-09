@@ -1,31 +1,38 @@
-import React from "react";
-import NavbarButton from "./NavbarButton";
-import NavbarOptions from "./NavbarOptions";
-import { useNavigate } from "react-router";
-// import { handleSearch, handleBlob } from '../utils/index.js'
-let handleSearch;
-let handleOptions;
+import { React, useState } from "react";
+import { useNavigate } from 'react-router';
+
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
+    const handleClick = () => {
+        if (!isOpen) {
+            navigate("/options");
+        } else {
+            navigate("/");
+        }
+        setIsOpen(!isOpen);
+    }
 
     return (
-        <nav className="sticky top-0 z-50 bg-white items-center px-4 py-5 shadow-md shadow-zinc-900/5 transition duration-500 sm:px-6 lg:px-8">
-            <div className="flex flex-row justify-evenly">
-                <NavbarButton checked onClick={() => navigate('/')} variant={'home'} icon="fa-solid fa-home" />
-                <NavbarButton onClick={handleOptions} variant={'options'} icon="fa-solid fa-bars" />
-            </div>
-            <div className="hidden flex-row justify-evenly my-10">
-                <NavbarButton onClick={() => navigate('/')} variant={'home'} icon="fa-solid fa-money-bill-transfer" />
-                <NavbarButton onClick={handleSearch} variant={'search'} icon="fa-solid fa-pen-to-square" />
-                <NavbarButton onClick={handleOptions} variant={'options'} icon="fa-solid fa-money-bills" />
-            </div>
-            <div className="hidden flex-row justify-evenly my-10">
-                <NavbarButton onClick={() => navigate('/')} variant={'home'} icon="fa-solid fa-magnifying-glass" />
-                <NavbarButton onClick={handleSearch} variant={'search'} icon="fa-solid fa-filter" />
-                <NavbarButton onClick={handleOptions} variant={'options'} icon="fa-solid fa-sort" />
-            </div>
-            <NavbarOptions></NavbarOptions>
+        <nav className="sticky top-0 bg-white items-center 
+        flex flex-row justify-end mx-6
+        px-10 py-5 shadow-md shadow-zinc-900/5 transition duration-500
+        sm:px-6 lg:px-8">
+            <button
+                onClick={handleClick}
+                data-open={isOpen}
+                aria-expanded={isOpen}
+                className={`group ${({ isActive }) => isActive ? "active" : ""}`}
+            >
+                <i className={`fa-solid fa-bars
+                group-hover:text-aspargus
+                group:text-zinc-400 transition text-2xl
+                ${isOpen ? "group:text-aspargus group-focus:text-aspargus" : ""}`}
+                >
+                </i>
+            </button>
+
         </nav>
     )
 };
