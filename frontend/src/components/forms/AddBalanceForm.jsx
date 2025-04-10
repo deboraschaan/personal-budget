@@ -4,9 +4,9 @@ import SubmitButton from "../buttons/SubmitButton";
 export default function AddBalanceForm() {
     return (
         <>
-            <div className="md:grid md:grid-cols-2 md:grid-flow-col md:gap-4 md:gap-x-20">
+            <div className="md:grid-cols-2 md:grid-flow-col md:gap-x-20 grid gap-5">
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-3">
                     <p className="text-sm">To one or more:</p>
                     <select
                         form="form-balance"

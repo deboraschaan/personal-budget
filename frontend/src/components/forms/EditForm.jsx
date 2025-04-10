@@ -5,7 +5,8 @@ import ColorButton from "../buttons/ColorButton";
 export default function EditForm(props) {
     return (
         <>
-            <div className="md:grid md:grid-flow-col md:grid-cols-2 md:gap-x-20 md:gap-4">
+            <div className="grid gap-4
+             md:grid-flow-col md:grid-cols-2 md:gap-x-20 ">
 
                 <div className="flex flex-col gap-2">
                     <label

@@ -3,7 +3,6 @@ import './style/index.css';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 import App from "./App";
-import NavbarOptions from './components/navbar/NavbarOptions';
 import Modal from "./components/modal/Modal";
 import SearchBar from "./components/searchbar/SearchBar";
 
@@ -14,7 +13,7 @@ ReactDOM.createRoot(root).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="options" element={<NavbarOptions />} />
+        <Route path="options" />
         <Route path="search" element={<SearchBar />} />
         <Route path="create" element={<Modal formId="form-create" />} />
         <Route path="edit" element={<Modal formId="form-edit" />} />

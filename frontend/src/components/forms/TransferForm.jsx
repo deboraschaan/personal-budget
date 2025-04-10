@@ -4,7 +4,7 @@ import SubmitButton from "../buttons/SubmitButton";
 export default function TransferForm() {
     return (
         <>
-            <div className="md:grid md:grid-cols-2 md:gap-4 md:gap-x-10">
+            <div className="grid gap-4 md:grid-cols-2 md:gap-x-10">
 
                 <div className="flex flex-col gap-2">
                     <label

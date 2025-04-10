@@ -5,7 +5,9 @@ import SubmitButton from "../buttons/SubmitButton";
 export default function CreateForm() {
     return (
         <>
-            <div className="md:grid md:grid-cols-2 md:grid-flow-col md:gap-4 md:gap-x-20">
+            <div
+                className="grid gap-4
+            md:grid-cols-2 md:grid-flow-col md:gap-x-20">
 
                 <div className="flex flex-col gap-2">
                     <label
