@@ -1,7 +1,7 @@
 import './style/index.css';
-import { React } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router';
-import NavBar from './components/navigation/NavBar';
+import NavBar from './components/navbar/NavBar';
 import EnvelopeList from './components/envelope-list/EnvelopeList';
 
 
