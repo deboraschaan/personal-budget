@@ -1,50 +1,76 @@
 import React from "react";
-import SubmitButton from "../buttons/SubmitButton";
+import Button from "../ui/Button";
+import Form from "../ui/Form";
+import { handleSubmit, handleChange, handleClick } from "../../utils/helpers";
+import Input from "../ui/Input";
+
 
 export default function TransferForm() {
+
     return (
         <>
-            <div className="grid gap-4 md:grid-cols-2 md:gap-x-10">
+            <Form
+                id="form-transfer"
+                method="dialog"
+                action={handleSubmit}
+                title="Transfer Between Envelopes"
+            >
 
                 <div className="flex flex-col gap-2">
-                    <label
-                        form="form-transfer"
-                        htmlFor="transfer-from">
-                        From:
-                    </label>
-                    <input
-                        form="form-transfer"
+                    <Input
                         type="text"
                         id="transfer-from"
                         required
-                        className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-2 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-aspargus focus:ring-4 focus:ring-aspargus/10 focus:outline-hidden sm:text-sm" />
+                        placeholder="Choose an envelope"
+                        onChange={handleChange}
+                        form="form-transfer"
+                        htmlFor="transfer-from"
+                        label="From:"
+                        className="input-class"
+                    >
+                    </Input>
                 </div>
+
                 <div className="flex flex-col gap-2">
-                    <label
-                        form="form-transfer"
-                        htmlFor="transfer-to">
-                        To:
-                    </label>
-                    <input
-                        form="form-transfer"
+                    <Input
                         type="text"
                         id="transfer-to"
                         required
-                        className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-2 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-aspargus focus:ring-4 focus:ring-aspargus/10 focus:outline-hidden sm:text-sm" />
-                </div>
-                <div className="flex flex-col gap-2 md:col-span-2">
-                    <label
-                        htmlFor="transfer-amount">Amount:
-                    </label>
-                    <input
-                        id="transfer-amount"
+                        placeholder="Choose an envelope"
+                        onChange={handleChange}
                         form="form-transfer"
-                        type="number"
-                        placeholder="$"
-                        className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-2 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-aspargus focus:ring-4 focus:ring-aspargus/10 focus:outline-hidden sm:text-sm" />
+                        htmlFor="transfer-to"
+                        label="To:"
+                        className="input-class"
+                    >
+                    </Input>
                 </div>
-            </div>
-            <SubmitButton id="submit-transfer" value="Transfer" />
+
+                <div className="flex flex-col gap-2 md:col-span-2">
+                    <Input
+                        type="number"
+                        id="transfer-amount"
+                        required
+                        placeholder="How much"
+                        onChange={handleChange}
+                        form="form-transfer"
+                        htmlFor="transfer-amount"
+                        label="Amount:"
+                        className="input-class"
+                    >
+                    </Input>
+                </div>
+
+            </Form>
+
+            <Button
+                type="submit"
+                className="submit-button"
+                value="Transfer"
+                onClick={handleClick}
+            >
+                Submit
+            </Button>
         </>
     )
 };

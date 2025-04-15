@@ -27,3 +27,24 @@
     color: var(--color-dark);
   }
 }
+
+/* Components */
+.nav-link {
+  @apply hover:text-aspargus py-4 flex gap-3 items-center;
+}
+
+.form {
+  @apply grid space-y-5 justify-center my-4 md:grid-cols-2 md:grid-flow-col md:gap-x-20;
+}
+
+.submit-button {
+  @apply inline-flex items-center justify-center rounded-md py-2 px-3 outline-offset-2 transition active:transition-none bg-zinc-100 font-medium text-zinc-900 hover:bg-aspargus/50 md:px-20 md:m-auto;
+}
+
+.input-class {
+  @apply block w-full px-3 py-2 my-3 appearance-none rounded-md border border-zinc-900/10 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-aspargus outline-0 text-sm;
+}
+
+.headline {
+  @apply text-zinc-900 font-semibold mb-6 mx-auto;
+}

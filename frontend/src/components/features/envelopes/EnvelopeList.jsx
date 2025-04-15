@@ -1,5 +1,5 @@
 import React from "react";
-import EnvelopeItem from "../envelope-item/EnvelopeItem";
+import EnvelopeItem from "./EnvelopeItem";
 import { useLocation } from "react-router";
 
 // <EnvelopeItem title={props.category} icon="fa-solid fa-envelope" color={props.color} budget={props.budget} />

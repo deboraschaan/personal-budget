@@ -1,6 +1,9 @@
+import { handleApiError } from "./errorHandler";
 function updateEnvelope(id) {
     fetch(`/envelopes/${id}`)
-}
+        .then(res => res.json())
+        .catch(error => console.log(handleApiError(error)))
+};
 
 
 class Envelope {

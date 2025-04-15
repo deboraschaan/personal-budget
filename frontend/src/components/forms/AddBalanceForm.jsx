@@ -1,55 +1,81 @@
 import React from "react";
-import SubmitButton from "../buttons/SubmitButton";
+import Button from "../ui/Button";
+import Form from "../ui/Form";
+import { handleSubmit, handleChange, handleClick } from "../../utils/helpers";
+import SelectInput from "../ui/SelectInput";
+import Input from "../ui/Input";
+import { Outlet } from "react-router";
 
 export default function AddBalanceForm() {
+    let amount;
+
     return (
         <>
-            <div className="md:grid-cols-2 md:grid-flow-col md:gap-x-20 grid gap-5">
+            <Form
+                id="form-add-balance"
+                method="dialog"
+                action={handleSubmit}
+                title="Add Balance"
+            >
 
                 <div className="flex flex-col gap-3">
-                    <p className="text-sm">To one or more:</p>
-                    <select
-                        form="form-balance"
-                        className="min-w-0 flex-auto
-                        rounded-md border border-zinc-900/10 
-                        px-3 py-2 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400
-                        focus:border-aspargus 
-                        focus:outline-hidden text-sm" >
+                    <SelectInput
+                        label="To one or more envelopes:"
+                        htmlFor="form-balance"
+                        name="one-or-more"
+                        id="form-balance"
+                        form="form-add-balance"
+                    >
                         <option value="one">One</option>
                         <option value="more">More</option>
-                    </select>
+
+                    </SelectInput>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <p className="text-sm">How to distribute:</p>
-                    <select
-                        form="form-balance"
-                        className="min-w-0 flex-auto rounded-md border
-                        border-zinc-900/10 bg-white px-3 py-2 shadow-md
-                        shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-aspargus 
-                        text-sm" >
+                    <SelectInput
+                        label="How to distribute:"
+                        htmlFor="form-balance"
+                        name="specific-evenly"
+                        id="form-balance"
+                        form="form-add-balance"
+                    >
                         <option value="evenly">Evenly</option>
                         <option value="specific">Specific</option>
-                    </select>
+
+                    </SelectInput>
+
                 </div>
 
                 <div className="flex flex-col gap-2 md:row-span-2">
-                    <label
-                        className="text-sm"
-                        htmlFor="balance-amount">Amount:
-                    </label>
-                    <input
-                        id="balance-amount"
-                        form="form-balance"
+                    <Input
                         type="number"
+                        id="balance-amount"
+                        form="form-add-balance"
+                        required
                         placeholder="$"
-                        className="min-w-0 flex-auto appearance-none rounded-md border
-                         border-zinc-900/10 px-3 py-4 max-h-10 shadow-md shadow-zinc-800/5
-                        placeholder:text-zinc-400 focus:border-aspargus outline-0
-                        text-sm" />
+                        name="amount"
+                        value={amount}
+                        onChange={handleChange}
+                        label="Amount:"
+                        htmlFor="balance-amount"
+                        className="input-class"
+
+                    >
+                    </Input>
                 </div>
-            </div>
-            <SubmitButton id="submit-balance" value="Add" />
+
+            </Form>
+
+            <Button
+                type="submit"
+                className="submit-button"
+                value="Add"
+                onClick={handleClick}
+            >
+                Submit
+            </Button>
+
         </>
     )
 };

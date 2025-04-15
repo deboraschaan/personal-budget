@@ -1,8 +1,8 @@
 import './style/index.css';
 import React from 'react';
 import { Outlet } from 'react-router';
-import NavBar from './components/navbar/NavBar';
-import EnvelopeList from './components/envelope-list/EnvelopeList';
+import NavBar from './components/layout/NavBar';
+import EnvelopeList from './components/features/envelopes/EnvelopeList';
 
 
 export default function App() {
