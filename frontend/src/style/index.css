@@ -29,6 +29,10 @@
 }
 
 /* Components */
+.card {
+  @apply grid grid-cols-8 grid-rows-2 p-10 mb-4 border-zinc-200 border rounded-xl hover:border-aspargus hover:bg-aspargus/50;
+}
+
 .nav-link {
   @apply hover:text-aspargus py-4 flex gap-3 items-center;
 }

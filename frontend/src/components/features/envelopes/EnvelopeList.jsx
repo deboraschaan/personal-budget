@@ -1,6 +1,7 @@
 import React from "react";
 import EnvelopeItem from "./EnvelopeItem";
 import { useLocation } from "react-router";
+import Card from "../../ui/Card";
 
 // <EnvelopeItem title={props.category} icon="fa-solid fa-envelope" color={props.color} budget={props.budget} />
 
@@ -22,6 +23,11 @@ export default function EnvelopeList() {
             >
                 <ul className="sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
                     <li>
+                        <Card
+                            envelope={{ category: "Groceries", budget: 400, color: "aspargus" }}
+                        ></Card>
+                    </li>
+                    <li>
                         <EnvelopeItem title="Groceries" icon="fa-solid fa-envelope" color="text-afternoon" budget="500" />
                     </li>
                     <li>
@@ -31,7 +37,7 @@ export default function EnvelopeList() {
                         <EnvelopeItem title="Gas" icon="fa-solid fa-envelope" color="text-barbie" budget="2000" />
                     </li>
                 </ul>
-            </main>
+            </main >
         </>
     )
 };
