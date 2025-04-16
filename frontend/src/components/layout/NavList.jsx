@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router";
-import NavItem from "./NavItem";
+import NavItem from "../ui/NavItem";
 
 export default function NavList() {
     const location = useLocation();

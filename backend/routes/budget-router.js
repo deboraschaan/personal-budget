@@ -5,7 +5,7 @@ let { envelopes } = require('../models/data.js');
 
 
 // POST: Transfer budget between envelopes
-envelopesRouter.post('/transfer/:from/:to', (req, res, next) => {
+budgetRouter.post('/transfer/:from/:to', (req, res, next) => {
     // Request info
     const fromId = Number(req.params.from);
     const toId = Number(req.params.to);
@@ -32,7 +32,7 @@ envelopesRouter.post('/transfer/:from/:to', (req, res, next) => {
 });
 
 // POST: Distribute balance across multiple envelopes
-envelopesRouter.post('/distribute', (req, res, next) => {
+budgetRouter.post('/distribute', (req, res, next) => {
     // Request info
     const { balance, chosenEnvelopesIds, distribution } = req.body;
 

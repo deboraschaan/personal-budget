@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ColorButton(props) {
+export default function ColorCircle(props) {
     return (
         <>
             <svg className="w-10 h-10">

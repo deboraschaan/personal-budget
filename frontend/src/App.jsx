@@ -1,16 +1,19 @@
 import './style/index.css';
 import React from 'react';
 import { Outlet } from 'react-router';
-import NavBar from './components/navbar/NavBar';
-import EnvelopeList from './components/envelope-list/EnvelopeList';
-
+import NavBar from './components/layout/NavBar';
+import EnvelopeList from './components/features/envelopes/EnvelopeList';
+import { envelopes } from './utils/mockdata';
+import Dashboard from './pages/Dashboard';
 
 export default function App() {
   return (
-    <div className='min-h-screen bg-theme-background text-theme-text relative'>
-      <NavBar />
-      <Outlet />
-      <EnvelopeList />
-    </div>
+    <>
+      <Dashboard>
+        <NavBar />
+        <Outlet />
+        <EnvelopeList envelopes={envelopes} />
+      </Dashboard>
+    </>
   )
 };
