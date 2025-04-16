@@ -30,7 +30,7 @@
 
 /* Components */
 .card {
-  @apply grid grid-cols-8 grid-rows-2 p-10 mb-4 border-zinc-200 border rounded-xl hover:border-aspargus hover:bg-aspargus/50;
+  @apply grid grid-cols-8 grid-rows-2 p-10 mb-4 border-zinc-200 border rounded-xl hover:border-aspargus hover:bg-aspargus/20 active:border-2;
 }
 
 .nav-link {

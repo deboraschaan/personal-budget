@@ -1,9 +1,9 @@
 import React from "react";
 import './style/index.css';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import App from "./App";
-import Modal from "./components/ui/Modal";
+import ModalContainer from "./components/containers/ModalContainer";
 import SearchBar from "./components/ui/SearchBar";
 import CreateForm from "./components/forms/CreateForm";
 import EditForm from "./components/forms/EditForm";
@@ -20,21 +20,21 @@ ReactDOM.createRoot(root).render(
       <Route path="/" element={<App />}>
         <Route path="options" />
         <Route path="search" element={<SearchBar />} />
-        <Route path="create" element={<Modal>
-          <CreateForm />
-        </Modal>} />
-        <Route path="edit" element={<Modal>
+        <Route path="create" element={<ModalContainer id="form-create">
+
+        </ModalContainer>} />
+        <Route path="edit" element={<ModalContainer>
           <EditForm />
-        </Modal>} />
-        <Route path="delete" element={<Modal>
+        </ModalContainer>} />
+        <Route path="delete" element={<ModalContainer>
           <DeleteForm />
-        </Modal>} />
-        <Route path="transfer" element={<Modal>
+        </ModalContainer>} />
+        <Route path="transfer" element={<ModalContainer>
           <TransferForm />
-        </Modal>} />
-        <Route path="add-balance" element={<Modal>
+        </ModalContainer>} />
+        <Route path="add-balance" element={<ModalContainer>
           <AddBalanceForm />
-        </Modal>} />
+        </ModalContainer>} />
       </Route>
     </Routes>
   </BrowserRouter>
